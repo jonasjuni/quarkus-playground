@@ -14,7 +14,7 @@ public class ConvenioResource {
     @GET
     public Uni<List<ConveniosClientesIntegracao>> listaConvenio() {
 
-        return ConveniosClientesIntegracao.listaConvenio().map(item -> item);
+        return ConveniosClientesIntegracao.listaConvenio();
     }
 
     @GET
@@ -27,9 +27,9 @@ public class ConvenioResource {
 
     @POST
     @Path("valida")
-    public Uni<Test> validaMCIConvenio(ConveniosClientesIntegracao request) {
+    public Boolean validaMCIConvenio(ConveniosClientesIntegracao request) {
 
-        return request.getValidadeConvenio().map(item -> new Test(item));
+        return request.validaConvenio();
     }
 
 }

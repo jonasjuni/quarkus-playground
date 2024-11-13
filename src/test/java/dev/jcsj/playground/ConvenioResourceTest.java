@@ -1,12 +1,15 @@
 package dev.jcsj.playground;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 
 import org.junit.jupiter.api.Test;
 
+import dev.jcsj.playground.persistence.ConveniosClientesIntegracao;
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.http.ContentType;
 
 @QuarkusTest
 public class ConvenioResourceTest {
@@ -17,13 +20,29 @@ public class ConvenioResourceTest {
                 .then()
                 .statusCode(200)
                 .body(
-                        "name", is("TJSP"));
+                        "name", is("TJMT"));
     }
 
     @Test
     void testListConvenio() {
         given()
                 .when().get("/convenios")
+                .then()
+                .statusCode(200);
+    }
+
+    @Test
+    void testValidaMCIConvenio() {
+        var request = new ConveniosClientesIntegracao();
+
+        request.codigoMCI = 1;
+        request.numeroConvenio = 111;
+
+        given()
+                .when()
+                .body(request)
+                .contentType(ContentType.JSON)
+                .post("/convenios/valida")
                 .then()
                 .statusCode(200);
     }

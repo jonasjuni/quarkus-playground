@@ -1,7 +1,6 @@
 package dev.jcsj.playground.persistence;
 
 import java.util.List;
-
 import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
 import io.smallrye.mutiny.Uni;
 import jakarta.persistence.Column;
@@ -31,7 +30,7 @@ import jakarta.persistence.Table;
  * }
  */
 @Entity
-@Table(name = "CNV_CLI_JDCL", schema = "quarkus")
+@Table(name = "CNV_CLI_JDCL", schema = "QUARKUS")
 public class ConveniosClientesIntegracao extends PanacheEntityBase {
 
     @Id
@@ -53,13 +52,7 @@ public class ConveniosClientesIntegracao extends PanacheEntityBase {
         return listAll();
     }
 
-    public String getName() {
-        return this.name.toLowerCase();
-    }
-
-    public Uni<Boolean> getValidadeConvenio() {
-        return find("codigoMCI = ?1 AND numeroConvenio = ?2", this.codigoMCI, this.numeroConvenio)
-                .firstResult()
-                .map(item -> item != null);
+    public Boolean validaConvenio() {
+        return true;
     }
 }
