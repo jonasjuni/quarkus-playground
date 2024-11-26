@@ -1,8 +1,6 @@
 package dev.jcsj.playground;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 
 import org.junit.jupiter.api.Test;
@@ -12,7 +10,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 
 @QuarkusTest
-public class ConvenioResourceTest {
+class ConvenioResourceTest {
     @Test
     void testGetNumeroConvenio() {
         given()
@@ -20,7 +18,7 @@ public class ConvenioResourceTest {
                 .then()
                 .statusCode(200)
                 .body(
-                        "name", is("TJMT"));
+                        "name", is("TJSP"));
     }
 
     @Test
