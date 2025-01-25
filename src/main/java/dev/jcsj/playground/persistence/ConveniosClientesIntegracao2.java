@@ -31,7 +31,7 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "CNV_CLI_JDCL", schema = "QUARKUS")
-public class ConveniosClientesIntegracao extends PanacheEntityBase {
+public class ConveniosClientesIntegracao2 extends PanacheEntityBase {
 
     @Id
     @Column(name = "CD_CLI_MCI")
@@ -44,11 +44,11 @@ public class ConveniosClientesIntegracao extends PanacheEntityBase {
     @Column(name = "NM_CLI")
     public String name;
 
-    public static Uni<ConveniosClientesIntegracao> buscaConvenio(long numeroConvenio) {
+    public static Uni<ConveniosClientesIntegracao2> buscaConvenio(long numeroConvenio) {
         return find("codigoMCI = ?1 AND numeroConvenio = ?2", 1, numeroConvenio).firstResult();
     }
 
-    public static Uni<List<ConveniosClientesIntegracao>> listaConvenio() {
+    public static Uni<List<ConveniosClientesIntegracao2>> listaConvenio() {
         return listAll();
     }
 
