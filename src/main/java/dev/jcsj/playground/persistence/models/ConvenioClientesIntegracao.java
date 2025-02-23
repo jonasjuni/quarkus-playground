@@ -1,4 +1,4 @@
-package dev.jcsj.playground.persistence.model;
+package dev.jcsj.playground.persistence.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

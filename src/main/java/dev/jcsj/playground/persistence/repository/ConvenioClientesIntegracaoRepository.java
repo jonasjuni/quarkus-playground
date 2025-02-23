@@ -1,11 +1,9 @@
 package dev.jcsj.playground.persistence.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import dev.jcsj.playground.persistence.dto.ConvenioClienteDTO;
-import dev.jcsj.playground.persistence.model.ConvenioClientesIntegracao;
-import dev.jcsj.playground.rest.utils.ListaConvenios;
+import dev.jcsj.playground.persistence.models.ConvenioClientesIntegracao;
 import io.quarkus.hibernate.reactive.panache.PanacheRepository;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
