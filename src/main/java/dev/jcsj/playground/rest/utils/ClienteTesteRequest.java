@@ -1,5 +1,6 @@
 package dev.jcsj.playground.rest.utils;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import org.hibernate.validator.constraints.Length;
@@ -10,7 +11,8 @@ import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public class ClienteTesteRequest {
+public class ClienteTesteRequest implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @NotBlank(message = "300")
     @Length(min = 0, message = "200")

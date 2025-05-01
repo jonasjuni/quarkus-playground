@@ -1,8 +1,7 @@
-package dev.jcsj.playground.Exceptions;
+package dev.jcsj.playground.exceptions;
 
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 
-import jakarta.ws.rs.NotAcceptableException;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
@@ -24,7 +23,7 @@ public class MyJsonProcessingExceptionHandler implements ExceptionMapper<Mismatc
 
         var fieldname = path.get(0).getFieldName();
 
-        throw new NotAcceptableException("invalid request");
+        return Response.status(Response.Status.BAD_REQUEST).entity(message).build();
     }
 
 }

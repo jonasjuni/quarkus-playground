@@ -2,6 +2,8 @@ package dev.jcsj.playground.rest;
 
 import java.util.ArrayList;
 
+import org.jboss.logging.Logger;
+
 import dev.jcsj.playground.persistence.ConveniosClientesIntegracao2;
 
 import dev.jcsj.playground.persistence.repository.ConvenioClientesIntegracaoRepository;
@@ -16,11 +18,15 @@ import jakarta.ws.rs.Path;
 @Path("convenios")
 public class ConvenioResource {
 
+    private static final Logger LOG = Logger.getLogger(ConvenioResource.class);
+
     @Inject
     ConvenioClientesIntegracaoRepository convenioClientesIntegracaoRepository;
 
     @GET
     public Uni<ConvenioResponse> listaConvenio() {
+
+        LOG.info("ConvenioResource");
 
         var listaConvenios = convenioClientesIntegracaoRepository.listaConvenioProject();
 
