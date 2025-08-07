@@ -1,8 +1,6 @@
 package dev.jcsj.playground.rest.utils;
 
 import org.jboss.logging.Logger;
-import org.jboss.logging.annotations.Producer;
-import org.jboss.resteasy.reactive.RestResponse;
 
 // import io.opentelemetry.api.metrics.LongCounter;
 // import io.opentelemetry.api.metrics.Meter;
