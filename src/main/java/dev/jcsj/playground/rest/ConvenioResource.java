@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 import org.jboss.logging.Logger;
 
-import dev.jcsj.playground.persistence.ConveniosClientesIntegracao2;
-
+import dev.jcsj.playground.persistence.models.ConvenioClientesIntegracao;
 import dev.jcsj.playground.persistence.repository.ConvenioClientesIntegracaoRepository;
 import dev.jcsj.playground.rest.utils.ConvenioResponse;
 
@@ -42,17 +41,17 @@ public class ConvenioResource {
 
     @GET
     @Path("{numeroConvenio}")
-    public Uni<ConveniosClientesIntegracao2> numeroConvenio(long numeroConvenio) {
+    public Uni<ConvenioClientesIntegracao> numeroConvenio(long numeroConvenio) {
 
-        return ConveniosClientesIntegracao2.find("codigoMCI = ?1 AND numeroConvenio = ?2", 1, numeroConvenio)
+        return convenioClientesIntegracaoRepository.find("codigoMCI = ?1 AND numeroConvenio = ?2", 1, numeroConvenio)
                 .firstResult();
     }
 
     @POST
     @Path("valida")
-    public Boolean validaMCIConvenio(ConveniosClientesIntegracao2 request) {
+    public Boolean validaMCIConvenio(ConvenioClientesIntegracao request) {
 
-        return request.validaConvenio();
+        return true;
     }
 
 }

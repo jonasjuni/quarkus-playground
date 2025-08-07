@@ -5,7 +5,7 @@ import static org.hamcrest.CoreMatchers.is;
 
 import org.junit.jupiter.api.Test;
 
-import dev.jcsj.playground.persistence.ConveniosClientesIntegracao2;
+import dev.jcsj.playground.persistence.models.ConvenioClientesIntegracao;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 
@@ -31,10 +31,11 @@ class ConvenioResourceTest {
 
     @Test
     void testValidaMCIConvenio() {
-        var request = new ConveniosClientesIntegracao2();
+        var request = new ConvenioClientesIntegracao();
 
         request.codigoMCI = 1;
         request.numeroConvenio = 111;
+        request.name = "TJSP";
 
         given()
                 .when()
