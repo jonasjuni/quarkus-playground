@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.jboss.logging.Logger;
 
 import dev.jcsj.playground.persistence.models.ConvenioClientesIntegracao;
+import dev.jcsj.playground.persistence.models.ConvenioClientesIntegracaoId;
 import dev.jcsj.playground.persistence.repository.ConvenioClientesIntegracaoRepository;
 import dev.jcsj.playground.rest.utils.ConvenioResponse;
 
@@ -43,8 +44,7 @@ public class ConvenioResource {
     @Path("{numeroConvenio}")
     public Uni<ConvenioClientesIntegracao> numeroConvenio(long numeroConvenio) {
 
-        return convenioClientesIntegracaoRepository.find("codigoMCI = ?1 AND numeroConvenio = ?2", 1, numeroConvenio)
-                .firstResult();
+        return convenioClientesIntegracaoRepository.findById(new ConvenioClientesIntegracaoId(1, numeroConvenio));
     }
 
     @POST

@@ -4,12 +4,14 @@ import java.util.List;
 
 import dev.jcsj.playground.persistence.dto.ConvenioClienteDTO;
 import dev.jcsj.playground.persistence.models.ConvenioClientesIntegracao;
-import io.quarkus.hibernate.reactive.panache.PanacheRepository;
+import dev.jcsj.playground.persistence.models.ConvenioClientesIntegracaoId;
+import io.quarkus.hibernate.reactive.panache.PanacheRepositoryBase;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class ConvenioClientesIntegracaoRepository implements PanacheRepository<ConvenioClientesIntegracao> {
+public class ConvenioClientesIntegracaoRepository
+        implements PanacheRepositoryBase<ConvenioClientesIntegracao, ConvenioClientesIntegracaoId> {
 
     public Uni<ConvenioClientesIntegracao> buscaConvenio(long numeroConvenio) {
         return find("codigoMCI = ?1 AND numeroConvenio = ?2", 1, numeroConvenio).firstResult();

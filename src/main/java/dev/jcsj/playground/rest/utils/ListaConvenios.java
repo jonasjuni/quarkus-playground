@@ -1,7 +1,10 @@
 package dev.jcsj.playground.rest.utils;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class ListaConvenios {
 
+    @JsonIgnore
     private long codigoMCI;
     private long numeroConvenio;
     private String name;
